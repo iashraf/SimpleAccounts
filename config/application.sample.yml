@@ -1,0 +1,2 @@
+LOCAL_DB_PASSWORD: 'your local db password'
+SECRET_TOKEN: 'generate a long string and put it in here'
