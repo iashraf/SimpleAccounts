@@ -1,7 +1,7 @@
 class InvoicesController < ApplicationController
 
 	def index
-		@invoices = tax_year.invoices.all
+		@invoices = tax_year.invoices.order("date_sent DESC").all
 	end
 
 	def show

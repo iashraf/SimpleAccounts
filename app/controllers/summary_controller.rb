@@ -1,8 +1,8 @@
 class SummaryController < ApplicationController
 
 	def index
-		@invoices = tax_year.invoices.all
-		@expenses = tax_year.expenses.all
+		@invoices = tax_year.invoices.order("date_sent DESC").all
+		@expenses = tax_year.expenses.order("date DESC").all
 	end
 
 	def redirect

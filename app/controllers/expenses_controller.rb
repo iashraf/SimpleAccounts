@@ -1,7 +1,7 @@
 class ExpensesController < ApplicationController
 
 	def index
-		@expenses = tax_year.expenses.all
+		@expenses = tax_year.expenses.order("date DESC").all
 	end
 
 	def show
