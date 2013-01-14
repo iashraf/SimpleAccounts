@@ -4,6 +4,10 @@ class ExpensesController < ApplicationController
 		@expenses = tax_year.expenses.all
 	end
 
+	def show
+		@expense = tax_year.expenses.find(params[:id].to_i)
+	end
+
 	def new
 		@expense = tax_year.expenses.new
 	end

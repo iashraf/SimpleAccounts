@@ -4,6 +4,10 @@ class InvoicesController < ApplicationController
 		@invoices = tax_year.invoices.all
 	end
 
+	def show
+		@invoice = tax_year.invoices.find(params[:id].to_i)
+	end
+
 	def new
 		@invoice = tax_year.invoices.new
 	end

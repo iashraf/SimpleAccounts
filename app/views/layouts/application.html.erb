@@ -36,41 +36,33 @@
 	</head>
 	<body>
 
-		<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar navbar-static-top">
 			<div class="navbar-inner">
-				<div class="container">
-					<a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</a>
-					<a class="brand" href="#">SimpleAccounts</a>
-					<div class="container nav-collapse collapse">
-						<ul class="nav">
-							<li><%= link_to "Summary", root_path %></li>
-							<li><%= link_to "Invoices", invoices_path %></li>
-							<li><%= link_to "Expenses", expenses_path %></li>
-							<li><%= link_to "Client", clients_path %></li>
-						</ul>
-					</div><!--/.nav-collapse -->
-				</div>
+				<%= link_to "SimpleAccounts", root_path, class: "brand" %>
+				<ul class="nav">
+					<li><%= link_to "Summary", root_path %></li>
+					<li><%= link_to "Invoices", invoices_path %></li>
+					<li><%= link_to "Expenses", expenses_path %></li>
+					<li><%= link_to "Clients", clients_path %></li>
+				</ul>
 			</div>
 		</div>
+
 
 		<div class="container">
 			<div class="row-fluid">
 				<div class="span12">
 
-					<header class="jumbotron subhead" id="overview">
-						<div class="container">
-							<h1>
-								<%= link_to "<", root_path(tax_year: tax_year.prev) %>
-								Tax year <%= tax_year.title %>
-								<%= link_to ">", root_path(tax_year: tax_year.next) %>
-							</h1>
-							<p class="lead">Fundamental HTML elements styled and enhanced with extensible classes.</p>
-						</div>
-					</header>
+					<br/>
+					<center>
+						<h1>
+							<%= link_to "<", root_path(tax_year: tax_year.prev.title) if tax_year.prev.present? %>
+							Tax year <%= tax_year.title %>
+							<%= link_to ">", root_path(tax_year: tax_year.next.title) if tax_year.next.present? %>
+						</h1>
+					</center>
+					<br/>
+
 
 					<%= bootstrap_flash %>
 					<%= yield %>

@@ -1,44 +1,42 @@
 <%= form_for @invoice, :html => { :class => 'form-horizontal' } do |f| %>
-  <div class="control-group">
-    <%= f.label :tax_year_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.number_field :tax_year_id, :class => 'number_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :client_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.number_field :client_id, :class => 'number_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :date_sent, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.date_select :date_sent, :class => 'date_select' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :date_paid, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.date_select :date_paid, :class => 'date_select' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :description, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :description, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :amount, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.number_field :amount, :class => 'number_field' %>
-    </div>
-  </div>
+	<div class="control-group">
+		<%= f.label :client_id, :class => 'control-label' %>
+		<div class="controls">
+			<%= f.number_field :client_id, :class => 'number_field' %>
+		</div>
+	</div>
+	<div class="control-group">
+		<%= f.label :date_sent, :class => 'control-label' %>
+		<div class="controls">
+			<%= f.date_select :date_sent, :class => 'date_select' %>
+		</div>
+	</div>
+	<div class="control-group">
+		<%= f.label :date_paid, :class => 'control-label' %>
+		<div class="controls">
+			<%= f.date_select :date_paid, :class => 'date_select' %>
+		</div>
+	</div>
+	<div class="control-group">
+		<%= f.label :description, :class => 'control-label' %>
+		<div class="controls">
+			<%= f.text_field :description, :class => 'text_field' %>
+		</div>
+	</div>
+	<div class="control-group">
+		<%= f.label :amount, :class => 'control-label' %>
+		<div class="controls">
+			<div class="input-prepend">
+				<span class="add-on">&pound;</span>
+				<%= f.number_field :amount, :class => 'number_field' %>
+			</div>
+		</div>
+		
+	</div>
 
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                invoices_path, :class => 'btn' %>
-  </div>
+	<div class="form-actions">
+		<%= f.submit nil, :class => 'btn btn-primary' %>
+		<%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+								invoices_path, :class => 'btn' %>
+	</div>
 <% end %>
