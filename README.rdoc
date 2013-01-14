@@ -10,10 +10,10 @@ This is a very simple rails app which will allow you to track your invoices and 
 
 3. Rename /config/application.sample.yml to /config/application.yml
 
-5. Migrate the database (will create a SQLite database)
-	     <tt>rake db:migrate</tt>
+4. Run <tt>bundle</tt> to install gems
 
-2. Run the app
-	     <tt>rails s</tt>
+5. Migrate the database by runnign <tt>rake db:migrate</tt> (will create a SQLite database)
 
-3. Go to http://localhost:3000 in your browser
+6. Run the app: <tt>rails s</tt>
+
+7. Go to http://localhost:3000 in your browser
