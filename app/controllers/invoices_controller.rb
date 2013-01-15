@@ -1,19 +1,19 @@
 class InvoicesController < ApplicationController
 
 	def index
-		@invoices = tax_year.invoices.order("date_sent DESC").all
+		@invoices = Invoice.where("date_paid >= ? AND date_paid <= ?", tax_year.start_date, tax_year.end_date).order("date_paid DESC").all
 	end
 
 	def show
-		@invoice = tax_year.invoices.find(params[:id].to_i)
+		@invoice = Invoice.find(params[:id].to_i)
 	end
 
 	def new
-		@invoice = tax_year.invoices.new
+		@invoice = Invoice.new
 	end
 
 	def create
-		@invoice = tax_year.invoices.new(params[:invoice])
+		@invoice = Invoice.new(params[:invoice])
 
 		if @invoice.save
 			redirect_to invoices_path
@@ -24,11 +24,11 @@ class InvoicesController < ApplicationController
 	end
 
 	def edit
-		@invoice = tax_year.invoices.find(params[:id])
+		@invoice = Invoice.find(params[:id])
 	end
 
 	def update
-		@invoice = tax_year.invoices.find(params[:id])
+		@invoice = Invoice.find(params[:id])
 
 		if @invoice.update_attributes(params[:invoice])
 			redirect_to invoices_path
@@ -39,7 +39,7 @@ class InvoicesController < ApplicationController
 	end
 
 	def destroy
-		@invoice = tax_year.invoices.find(params[:id])
+		@invoice = Invoice.find(params[:id])
 
 		@invoice.destroy
 

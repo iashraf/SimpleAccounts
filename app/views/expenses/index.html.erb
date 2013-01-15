@@ -6,7 +6,7 @@
 	<thead>
 		<tr>
 			<th><%= model_class.human_attribute_name(:date) %></th>
-			<th><%= model_class.human_attribute_name(:item) %></th>
+			<th><%= model_class.human_attribute_name(:item_description) %></th>
 			<th><%= model_class.human_attribute_name(:amount) %></th>
 			<th><%=t '.actions', :default => t("helpers.actions") %></th>
 		</tr>
@@ -16,7 +16,7 @@
 			<tr>
 				<td><%= expense.date %></td>
 				<td><%= expense.item %></td>
-				<td><%= expense.amount %></td>
+				<td><%= number_to_currency expense.amount, :unit => "&pound;", :separator => ".", :delimiter => "," %></td>
 				<td>
 					<%= link_to t('.edit', :default => t("helpers.links.edit")),
 											edit_expense_path(id: expense), :class => 'btn btn-mini' %>

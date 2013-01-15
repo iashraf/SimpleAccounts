@@ -3,7 +3,9 @@
 		
 		<div class="span6">
 			
-			<h2>Invoices</h2>
+			<div class="page-header">
+				<h1>Invoices</h1>
+			</div>
 
 			<table class="table table-striped">
 				
@@ -22,10 +24,19 @@
 						<td><%= invoice.date_sent %></td>
 						<td><%= invoice.date_paid %></td>
 						<td><%= invoice.client.name %></td>
-						<td><%= invoice.amount %></td>
+						<td><%= number_to_currency invoice.amount, :unit => "&pound;", :separator => ".", :delimiter => "," %></td>
 					</tr>
 					<% end %>
 				</tbody>
+
+				<tfoot>
+					<tr>
+						<td></td>
+						<td></td>
+						<td>Total</td>
+						<td><%= number_to_currency @totalIncome, :unit => "&pound;", :separator => ".", :delimiter => "," %></td>
+					</tr>
+				</tfoot>
 
 			</table>
 
@@ -37,14 +48,16 @@
 
 		<div class="span6">
 			
-			<h2>Expenses</h2>
+			<div class="page-header">
+				<h1>Expenses</h1>
+			</div>
 
 			<table class="table table-striped">
 				
 				<thead>
 					<tr>
-						<th>Date bought</th>
-						<th>Item</th>
+						<th>Date of purchase</th>
+						<th>Item description</th>
 						<th>Amount</th>
 					</tr>
 				</thead>
@@ -54,10 +67,18 @@
 					<tr>
 						<td><%= expense.date %></td>
 						<td><%= expense.item %></td>
-						<td><%= expense.amount %></td>
+						<td><%= number_to_currency expense.amount, :unit => "&pound;", :separator => ".", :delimiter => "," %></td>
 					</tr>
 					<% end %>
 				</tbody>
+
+				<tfoot>
+					<tr>
+						<td></td>
+						<td>Total</td>
+						<td><%= number_to_currency @totalExpenditure, :unit => "&pound;", :separator => ".", :delimiter => "," %></td>
+					</tr>
+				</tfoot>
 
 			</table>
 

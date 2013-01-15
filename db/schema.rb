@@ -21,16 +21,14 @@ ActiveRecord::Schema.define(:version => 5) do
   end
 
   create_table "expenses", :force => true do |t|
-    t.integer  "tax_year_id"
     t.date     "date"
     t.string   "item"
     t.integer  "amount"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "invoices", :force => true do |t|
-    t.integer  "tax_year_id"
     t.integer  "client_id"
     t.date     "date_sent"
     t.date     "date_paid"

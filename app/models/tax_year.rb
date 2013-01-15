@@ -1,8 +1,5 @@
 class TaxYear < ActiveRecord::Base
 
-	has_many :invoices
-	has_many :expenses
-
 	attr_accessible :title, :start_date, :end_date
 
 	def next
@@ -12,4 +9,5 @@ class TaxYear < ActiveRecord::Base
 	def prev
 		TaxYear.where("id < ?", id).last
 	end
+
 end

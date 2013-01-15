@@ -8,13 +8,13 @@
 	<div class="control-group">
 		<%= f.label :date_sent, :class => 'control-label' %>
 		<div class="controls">
-			<%= f.date_select :date_sent, :class => 'date_select' %>
+			<%= f.date_select :date_sent, :class => 'date_select', :order => [:day, :month, :year] %>
 		</div>
 	</div>
 	<div class="control-group">
 		<%= f.label :date_paid, :class => 'control-label' %>
 		<div class="controls">
-			<%= f.date_select :date_paid, :class => 'date_select' %>
+			<%= f.date_select :date_paid, :class => 'date_select', :order => [:day, :month, :year] %>
 		</div>
 	</div>
 	<div class="control-group">

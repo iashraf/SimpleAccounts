@@ -21,7 +21,7 @@
 					<%= invoice.client.name %><br/>
 					<%= invoice.description %>
 				</td>
-				<td><%= invoice.amount %></td>
+				<td><%= number_to_currency invoice.amount, :unit => "&pound;", :separator => ".", :delimiter => "," %></td>
 				<td>
 					<%= link_to t('.edit', :default => t("helpers.links.edit")),
 											edit_invoice_path(id: invoice), :class => 'btn btn-mini' %>
